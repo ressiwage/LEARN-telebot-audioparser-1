@@ -29,7 +29,7 @@ def modify_transcribe_file(file_path):
         
         
         # Заменяем строку, сохраняя отступ
-        lines[492] = """            yield f"{round((pbar.n/pbar.total)*100, 2)}%; frame {pbar.n} of {pbar.total}"\n """
+        lines[492] = """            yield f"{round((pbar.n/pbar.total)*100, 2)}%; frame {pbar.n} of {pbar.total}"\n"""
         
         with open(file_path, 'w', encoding='utf-8') as f:
             f.writelines(lines)
