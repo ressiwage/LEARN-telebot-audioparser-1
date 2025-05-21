@@ -18,7 +18,7 @@ WHISPER_MODELS = {
     'turbo': 'turbo'    
 }
 
-DEFAULT_MODEL = 'small'
+DEFAULT_MODEL = 'tiny'
 MODEL = whisper.load_model(DEFAULT_MODEL).to('cpu')
 DEVICE = torch.device('cpu')
 ALLOWED_USERNAMES = ['ressiwage']
