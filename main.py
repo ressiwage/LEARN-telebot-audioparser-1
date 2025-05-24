@@ -118,7 +118,6 @@ def process_transcription(audio_path, chat_id):
         transcribed_segments = []
 
         def update_segment(text):
-            transcribed_segments.append(text)
             try:
                 bot.edit_message_text(
                     chat_id=chat_id,
@@ -165,6 +164,8 @@ def audio_handler(message):
         audio_path = join(dirname, 'to_transcribe.ogg')
         with open(audio_path, 'wb') as new_file:
             new_file.write(downloaded_file)
+        del downloaded_file
+        del file_info
         process_transcription(audio_path, conf.chat_id)
     except Exception as e:
         error_msg = f"❌ Ошибка обработки голосового:\n<code>{h.escape(str(e))}</code>"
@@ -182,6 +183,8 @@ def circle_handler(message):
         video_path = join(dirname, src)
         with open(video_path, 'wb') as new_file:
             new_file.write(downloaded_file)
+        del downloaded_file
+        del file_info
         clip = mp.VideoFileClip(video_path)
         audio_path = join(dirname, "to_transcribe.ogg")
         clip.audio.write_audiofile(audio_path)
