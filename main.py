@@ -23,7 +23,7 @@ WHISPER_MODELS = {
     'large-v3-turbo': 'large-v3-turbo',
 }
 
-DEFAULT_MODEL = 'large-v3-turbo'
+DEFAULT_MODEL = 'tiny'
 MODEL = whisper.load_model(DEFAULT_MODEL).to('cpu')
 DEVICE = torch.device('cpu')
 ALLOWED_USERNAMES = ['ressiwage']
@@ -59,6 +59,15 @@ class OutputInterceptor:
 
     def flush(self):
         self.original_stream.flush()
+
+def setup_bot_commands():
+    """Устанавливает меню команд для бота"""
+    commands = [
+        types.BotCommand("start", "Начать работу с ботом"),
+        types.BotCommand("help", "Показать справку"),
+        types.BotCommand("model", "Сменить модель распознавания")
+    ]
+    bot.set_my_commands(commands)
 
 def send_help(chat_id):
     help_text = """
@@ -315,6 +324,9 @@ def url_handler(message):
 
 if __name__ == '__main__':
     try:
+        # Устанавливаем меню команд при запуске бота
+        setup_bot_commands()
+        
         # Проверяем наличие необходимых утилит
         try:
             subprocess.run(['wget', '--version'], capture_output=True, check=True)
