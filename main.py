@@ -18,9 +18,9 @@ WHISPER_MODELS = {
     'medium': 'medium',
     'large': 'large',
     'turbo': 'turbo',
-    'large V2': 'large-v2',
-    'large V3': 'large-v3',
-    'large V3 turbo': 'large-v3-turbo',
+    'large-v2': 'large-v2',
+    'large-v3': 'large-v3',
+    'large-v3-turbo': 'large-v3-turbo',
 }
 
 DEFAULT_MODEL = 'large-v3-turbo'
