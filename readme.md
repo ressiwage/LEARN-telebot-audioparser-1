@@ -12,7 +12,8 @@
 3. python3.10 -m venv venv && source ./venv/bin/activate
 4. переименуйте conf-sample.py в conf.py и вставьте туда свой тг токен
 5. в файле main.py добавьте свой id в список разрешенных
-6. python3.10 main.py
+5. python inject_whisper.py -- для манки-патчинга виспера.
+6. python main.py
 
 ## опционально
 - если вам не хватает места в оперативной то вы можете воспользоваться скриптом setup-swap.sh, он добавляет свап размером 1гб
